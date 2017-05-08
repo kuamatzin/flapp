@@ -55,5 +55,13 @@ export class AboutPage {
     });
   }
 
+  getMyCards(refresher) {
+    this.api.getCardsByUser(this.user.id).then((results) => {
+      this.cards = results;
+      refresher.complete();
+    }, (error) => {
+    });
+  }
+
 
 }

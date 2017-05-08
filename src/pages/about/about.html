@@ -7,6 +7,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="getMyCards($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Jala para actualizar" refreshingSpinner="circles" refreshingText="Actualizando..."></ion-refresher-content>
+  </ion-refresher>
   <div class="iniciar-sesion" *ngIf="showLogin">
     <br>
     <h1 text-center>Inicia sesión para ver tus tarjetas</h1>
@@ -25,7 +28,7 @@
     <ion-card *ngFor="let card of cards">
       <img [src]="card.image" />
       <div class="uses">
-        <div class="circle" *ngFor="let i of arr(this.card.uses).fill(1); let n = index" [ngClass]="{'sellada': n < this.card.pivot.uses}">      
+        <div class="circle" *ngFor="let i of arr(this.card.uses).fill(1); let n = index" [ngClass]="{'sellada': n < this.card.pivot.uses}">
         </div>
       </div>
       <ion-card-content>
