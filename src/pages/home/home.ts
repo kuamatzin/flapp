@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { Headers, Http } from '@angular/http';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ApiService } from "../../providers/api-service";
+import { AuthenticationService } from "../../providers/authentication-service";
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [ApiService, AuthenticationService]
 })
 
 
@@ -14,9 +17,6 @@ export class HomePage {
   cards: any;
   businessType: string = '';
   loader;
-  dev_url: string = "http://localhost:8100/";
-  pro_url: string = "http://www.fielapp.inovuz.com/";
-  current_url: string;
   user: string;
 
   constructor(
@@ -24,10 +24,9 @@ export class HomePage {
     public http: Http,
     private storage: NativeStorage,
     public loadingCtrl: LoadingController,
+    public api: ApiService,
+    private authentication: AuthenticationService
   ) {
-
-    this.current_url = this.dev_url;
-
 
     storage.getItem('profile').then(profile => {
       this.user = JSON.parse(profile);
@@ -35,10 +34,11 @@ export class HomePage {
 
     this.presentLoading();
 
-    this.http.get(this.current_url + 'cards').subscribe(data => {
-      this.cards = data.json();
+
+    this.api.getCards().then(results => {
+      this.cards = results;
       this.loader.dismiss();
-    });
+    }, error => console.log(error));
 
   }
 
@@ -49,12 +49,14 @@ export class HomePage {
     this.loader.present();
   }
 
+
   getCardsByBusinessType() {
     this.presentLoading();
-    this.http.get(this.current_url + 'cards/' + this.businessType).subscribe(data => {
-      this.cards = data.json();
+
+    this.api.getCardsByBusinessType(this.businessType).then(results => {
+      this.cards = results
       this.loader.dismiss();
-    });
+    }, error => console.log(error));
   }
 
 }

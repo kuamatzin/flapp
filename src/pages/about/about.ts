@@ -12,10 +12,10 @@ import { ApiService } from "../../providers/api-service";
 })
 export class AboutPage {
   arr = Array;
-  num:number = 5;
   user;
   cards;
   showLogin: boolean = true;
+  fistTimeToLaunch: number = 0;
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
@@ -32,9 +32,10 @@ export class AboutPage {
   ifUserIsConnected() {
     this.user = this.authentication.getUser();
     this.showLogin = this.user == null ? true : false;
-    if (!this.showLogin) {
+    if (!this.showLogin && this.fistTimeToLaunch == 0) {
       this.api.getCardsByUser(this.user.id).then((results) => {
         this.cards = results;
+        this.fistTimeToLaunch = this.fistTimeToLaunch + 1;
       }, (error) => {
         this.authentication.logout();
         this.showLogin = true;

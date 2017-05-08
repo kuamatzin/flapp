@@ -23,6 +23,18 @@ export class ApiService {
     this.current_url = this.dev_url;
   }
 
+  public getCards() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.current_url + 'cards').subscribe(data => resolve(data.json()), error => reject(error));
+    });
+  }
+
+  public getCardsByBusinessType(businessType) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.current_url + 'cards/' + businessType).subscribe(data => resolve(data.json()), error => reject(error));
+    });
+  }
+
   public getCardsByUser(user_id) {
     return new Promise((resolve, reject) => {
       let token = localStorage.getItem('token');

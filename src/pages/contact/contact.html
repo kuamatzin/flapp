@@ -22,7 +22,11 @@
     </ion-grid>
   </div>
   <div *ngIf="!showLogin">
-    <p>Usuario: {{user}}</p>
+    <div class="profile">
+      <img src="https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-9/18193855_10154621430772817_4694130510271110008_n.jpg?oh=eabc805c5f92ed8b1ce4dafa74bc7434&amp;oe=59BA468D"
+        class="img-circle">
+    </div>
+    <p text-center>{{user.name}}</p>
     <br>
     <button ion-button full clear (click)="logout()">Cerrar Sesión</button>
   </div>
