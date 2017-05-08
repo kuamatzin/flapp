@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tarjetas de Fidelización</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select [(ngModel)]="businessType" (ngModelChange)="getCardsByBusinessType()">
+        <ion-option value="Comida">Comida</ion-option>
+        <ion-option value="Belleza">Belleza</ion-option>
+        <ion-option value="Entretenimiento">Entretenimiento</ion-option>
+        <ion-option value="Librerias">Librerías</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngFor="let card of cards">
+    <img [src]="card.image" />
+    <ion-card-content>
+      <ion-card-title>
+        {{card.business.name}} - {{card.business.businesses_type}}
+      </ion-card-title>
+      <p>
+        {{card.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Iniciar Sesión
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss(false)">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #signForm="ngForm" (ngSubmit)="login(signForm.value)">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" name="email" ngModel></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" name="password" ngModel></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button outline type="submit">Iniciar Sesión</button>
+    </div>
+  </form>
+
+  <button ion-button block (click)="facebookLogin()">Facebook Login</button>
+  <button ion-button block (click)="googlePlusLogin()">Google Plus Login</button>
+</ion-content>

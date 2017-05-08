@@ -1,0 +1,25 @@
+page-about {
+        .iniciar-sesion {
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+        }
+        .uses {
+                display: flex;
+        }
+        .circle {
+                position: relative;
+                margin-left: 5px;
+                top: -30px;
+                left: 10px;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border-radius: 50px;
+        }
+        .sellada {
+                background-color: red;
+        }
+}
