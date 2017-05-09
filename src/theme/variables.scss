@@ -28,9 +28,32 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  fielapp-color: #FF9900, 
+  fielapp-secundary: #CCCCCC
+
 );
 
+$fielapp-color: #FF9900;
+$fielapp-secundary: #CCCCCC;
+
+$toolbar-background: $fielapp-color;
+$toolbar-border-color: $fielapp-color;
+$toolbar-text-color: $fielapp-color;
+$toolbar-active-color: $fielapp-color;
+$toolbar-inactive-color: $fielapp-color;
+$tabs-ios-border: $fielapp-color;
+$tabs-ios-tab-text-color: $fielapp-color;
+$toolbar-md-background:    $fielapp-color;
+$tabbar-md-background: $fielapp-color;
+//Cards
+$card-ios-header-color: $fielapp-secundary;
+$card-ios-header-color: $fielapp-secundary;
+$card-ios-margin-top: 0px;
+$card-ios-padding-media-bottom: 0px;
+$card-ios-padding-top: 0px;
+$card-ios-text-color: #4d4d4d;
+$card-ios-title-text-color: #331a00;
 
 // App iOS Variables
 // --------------------------------------------------

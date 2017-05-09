@@ -20,6 +20,22 @@ page-about {
                 border-radius: 50px;
         }
         .sellada {
-                background-color: red;
+                background-color: $fielapp-color;
+        }
+        .master {
+                position: relative;
+        }
+        .completed {
+                position: absolute;
+                top: 0; left: 0; bottom: 0; right: 0;
+                margin: auto;
+                width: 60%;
+        }
+        .ion-card-custom {
+                display: inline !important;
+                margin: 0px 0px 0px 0px !important;
+        }
+        .list-custom {
+                margin: -1px 0 0px 0 !important;
         }
 }

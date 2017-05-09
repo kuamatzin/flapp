@@ -25,8 +25,11 @@
     </ion-grid>
   </div>
   <div *ngIf="!showLogin">
-    <ion-card *ngFor="let card of cards">
-      <img [src]="card.image" />
+    <ion-card *ngFor="let card of cards" class="ion-card-custom">
+      <div class="master">
+        <img [src]="card.image" />
+        <img src="/assets/img/completed.png" class="completed" *ngIf="card.pivot.completed">
+      </div>
       <div class="uses">
         <div class="circle" *ngFor="let i of arr(this.card.uses).fill(1); let n = index" [ngClass]="{'sellada': n < this.card.pivot.uses}">
         </div>

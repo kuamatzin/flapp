@@ -5,10 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list class="list-custom">
     <ion-item>
-      <ion-label>Tipo</ion-label>
+      <ion-label>Filtros</ion-label>
       <ion-select [(ngModel)]="businessType" (ngModelChange)="getCardsByBusinessType()">
+        <ion-option value="" selected>Sin Filtros</ion-option>
         <ion-option value="Comida">Comida</ion-option>
         <ion-option value="Belleza">Belleza</ion-option>
         <ion-option value="Entretenimiento">Entretenimiento</ion-option>
@@ -16,10 +17,10 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-card *ngFor="let card of cards">
+  <ion-card *ngFor="let card of cards" class="ion-card-custom">
     <img [src]="card.image" />
-    <ion-card-content>
-      <ion-card-title>
+    <ion-card-content class="card-description">
+      <ion-card-title (click)="getBusinessDetails(card.business)">
         {{card.business.name}} - {{card.business.businesses_type}}
       </ion-card-title>
       <p>

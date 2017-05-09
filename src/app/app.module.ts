@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
+import { BusinessPage } from '../pages/business-page/business-page';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { AuthenticationService } from "../providers/authentication-service";
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    BusinessPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { AuthenticationService } from "../providers/authentication-service";
     HomePage,
     TabsPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    BusinessPage
   ],
   providers: [
     StatusBar,

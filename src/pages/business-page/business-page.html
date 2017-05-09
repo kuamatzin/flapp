@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{business.name}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss(false)">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="master-profile">
+    <div class="profile" [ngStyle]="{'background-image': 'url(' + business.logo + ')'}" style="background-size: cover; filter: blur(5px)">
+    </div>
+    <div class="hello">
+      <img [src]="business.logo"
+        class="img-circle">
+      <p text-center class="name">{{business.name}}</p>
+    </div>
+  </div>
+</ion-content>
